@@ -8,6 +8,7 @@ interface DynamicIconProps {
   size?: number;
   strokeWidth?: number;
   className?: string;
+  style?: React.CSSProperties;
 }
 
 /**
@@ -19,6 +20,7 @@ export default function DynamicIcon({
   size = 24,
   strokeWidth = 1.5,
   className = "",
+  style = {},
 }: DynamicIconProps) {
   // Convert kebab-case to PascalCase for Lucide component lookup
   const pascalName = name
@@ -29,5 +31,5 @@ export default function DynamicIcon({
   const icons = LucideIcons as unknown as Record<string, React.FC<LucideIcons.LucideProps>>;
   const IconComponent = icons[pascalName] || LucideIcons.Circle;
 
-  return <IconComponent size={size} strokeWidth={strokeWidth} className={className} />;
+  return <IconComponent size={size} strokeWidth={strokeWidth} className={className} style={style} />;
 }

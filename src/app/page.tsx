@@ -1,5 +1,3 @@
-import { redirect } from "next/navigation";
-
 export default function HomePage() {
-  redirect("/speech");
+  return <div className="page-container" />;
 }
